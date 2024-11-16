@@ -16,7 +16,7 @@ class DosenSeeder extends Seeder
     public function run()
     {
         $dosen = Dosen::create([
-            'nip' => 24066020010,
+            'nip' => 20010,
             'nama' => 'Bawazir Dosen',
             'email' => 'dosen@gmail.com',
             'password' => bcrypt('password'),

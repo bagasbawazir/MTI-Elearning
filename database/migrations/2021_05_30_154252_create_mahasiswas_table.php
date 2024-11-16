@@ -17,7 +17,7 @@ class CreateMahasiswasTable extends Migration
             $table->increments('id');
             $table->foreignId('fakultas_id');
             $table->foreignId('kelas_id');
-            $table->integer('nim');
+            $table->bigInteger('nim');
             $table->string('nama');
             $table->string('email')->unique();
             $table->string('password');
