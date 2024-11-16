@@ -15,13 +15,22 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        $admin = Admin::create([
+        // Admin pertama
+        $admin1 = Admin::create([
             'nama' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
             'foto' => 'default.png',
         ]);
+        $admin1->assignRole('admin');
 
-        $admin->assignRole('admin');
+        // Admin kedua
+        $admin2 = Admin::create([
+            'nama' => 'Admin',
+            'email' => 'bagasbawazir@gmail.com',
+            'password' => bcrypt('password'),
+            'foto' => 'default.png',
+        ]);
+        $admin2->assignRole('admin');
     }
 }
