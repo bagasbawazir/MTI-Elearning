@@ -14,7 +14,7 @@ class FakultasSeeder extends Seeder
      */
     public function run()
     {
-        $fakultas = collect(['teknologi informasi','sistem informasi','rekayasa perangkat lunak','broadcasting','ilmu komputer','teknik komputer jaringan','sistem database','game development', 'machine learning' ,'cloud sistem', 'multimedia' ]);
+        $fakultas = collect(['teknologi informasi','sistem informasi','rekayasa perangkat lunak','ilmu komputer','teknik komputer jaringan','sistem database','game development', 'machine learning' ,'cloud sistem' ]);
 
         $fakultas->each(function($fk){
             $arr = explode(' ', $fk);
