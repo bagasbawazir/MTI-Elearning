@@ -1,0 +1,92 @@
+<?php
+
+namespace App\Models;
+
+use Carbon\Carbon;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class Dosen extends Authenticatable
+{
+    use HasFactory, HasRoles, Notifiable;
+
+    protected $guarded = [];
+    // protected $with = ['absens'];
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function jadwals()
+    {
+        return $this->hasMany(Jadwal::class);
+    }
+
+    public function kelas()
+    {
+        return $this->belongsToMany(Kelas::class)->withPivot('matkul_id');
+    }
+
+    public function matkuls()
+    {
+        return $this->belongsToMany(Matkul::class);
+    }
+
+    public function materis()
+    {
+        return $this->hasMany(Materi::class);
+    }
+
+    public function absens()
+    {
+        return $this->hasMany(Absen::class);
+    }
+
+    public function absenTodayPerJadwal($jadwalId)
+    {
+        return $this->hasOne(Absen::class)
+                ->where('jadwal_id', $jadwalId)
+                ->whereDate('created_at', date('Y-m-d'));
+    }
+
+    public function tugas()
+    {
+        return $this->hasMany(Tugas::class);
+    }
+
+    public function nilais()
+    {
+        return $this->hasMany(Nilai::class);
+    }
+
+    public function getPictureAttribute()
+    {
+        return asset('/storage/'.$this->foto);
+    }
+
+    public function getPictureDefaultAttribute()
+    {
+        return asset('/assets/images/default.png');
+    }
+
+    public function getCreatedAtAttribute()
+    {
+        return Carbon::parse($this->attributes['created_at'])->translatedFormat('l, d F Y');
+    }
+}
