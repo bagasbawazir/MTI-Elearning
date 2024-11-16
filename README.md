@@ -91,23 +91,23 @@ git clone https://github.com/bagasbawazir/MTI-Elearning.git
 </ul>
 <table border="1px" cellspacing="0" cellpadding="5px">
     <tr>
+        <th>Level</th>
         <th>Email</th>
         <th>Password</th>
-        <th>Level</th>
     </tr>
     <tr>
+        <td>Admin</td>
         <td>admin@gmail.com</td>
         <td>password</td>
-        <td>Admin</td>
     </tr>
     <tr>
+        <td>Dosen</td>
         <td>dosen@gmail.com</td>
         <td>password</td>
-        <td>Dosen</td>
     </tr>
     <tr>
+        <td>Mahasiswa</td>
         <td>mahasiswa@gmail.com</td>
         <td>password</td>
-        <td>Mahasiswa</td>
     </tr>
 </table>
