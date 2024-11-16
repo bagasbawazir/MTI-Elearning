@@ -25,7 +25,7 @@
                                 <h6 class="mb-1">Youtube</h6>
                             </div>
                         </a>
-                        <a href="https://github.com/fadlieFerdiyansah/web-elearning" target="_blank"
+                        <a href="https://github.com/bagasbawazir/MTI-Elearning" target="_blank"
                             class="list-group-item list-group-item-action">
                             <div class="d-flex justify-content-between">
                                 <h6 class="mb-1"><img width="40" height="40" alt="GitHub Logomark" class="height-auto"
