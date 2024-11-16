@@ -19,7 +19,7 @@ class MahasiswaSeeder extends Seeder
             'fakultas_id' => 1,
             'kelas_id' => 2,
             'nim' => 17200812,
-            'nama' => 'Fadlie Ferdiyansah',
+            'nama' => 'Bawazir Fadhil Mohammad',
             'email' => 'mahasiswa@gmail.com',
             'password' => bcrypt('password'),
             'foto' => 'default.png'
