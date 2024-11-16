@@ -18,7 +18,7 @@ class MahasiswaSeeder extends Seeder
         Mahasiswa::create([
             'fakultas_id' => 1,
             'kelas_id' => 2,
-            'nim' => 24066020010,
+            'nim' => 240660200,
             'nama' => 'Bawazir Fadhil Mohammad',
             'email' => 'mahasiswa@gmail.com',
             'password' => bcrypt('password'),
