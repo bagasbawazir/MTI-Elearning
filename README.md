@@ -50,30 +50,21 @@ git clone https://github.com/bagasbawazir/MTI-Elearning.git
     <li>Lalu masukan <code> FILESYSTEM_DRIVER=public </code> ke <b> .env </b> </li>
     <li>Lalu ketikan <code> php artisan migrate </code> enter, setelah berhasil ketikan <code>php artisan storage:link</code> enter</li>
     <li>Setelah itu setup email untuk verifikasi lupa password pada file <b>.env</b></li>
-    <code>
-        MAIL_MAILER=smtp
-    </code> <br>
-    <code>
-        MAIL_HOST=smtp.gmail.com
-    </code> <br>
-    <code>
-        MAIL_PORT=465
-    </code> <br>
-    <code>
-        MAIL_USERNAME=youremail@gmail.com
-    </code> <br>
-    <code>
-        MAIL_PASSWORD=yourpassword
-    </code> <br>
-    <code>
-        MAIL_ENCRYPTION=ssl
-    </code> <br>
-    <code>
-        MAIL_FROM_ADDRESS=elarning@noreply.com
-    </code> <br>
-    <code>
-        MAIL_FROM_NAME="${APP_NAME}"
-    </code>
+    <code>MAIL_MAILER=smtp</code>
+    <br>
+    <code>MAIL_HOST=smtp.gmail.com</code>
+    <br>
+    <code>MAIL_PORT=465</code>
+    <br>
+    <code>MAIL_USERNAME=youremail@gmail.com</code>
+    <br>
+    <code>MAIL_PASSWORD=yourpassword</code>
+    <br>
+    <code>MAIL_ENCRYPTION=ssl</code>
+    <br>
+    <code>MAIL_FROM_ADDRESS=elarning@noreply.com</code>
+    <br>
+    <code>MAIL_FROM_NAME="${APP_NAME}"</code>
     <li>Lalu buat key app nya dengan cara <code> php artisan key:generate </code> </li>
     <li>Setelah itu download semua package dengan cara <code> composer install </code> </li>
     <li>
@@ -81,17 +72,13 @@ git clone https://github.com/bagasbawazir/MTI-Elearning.git
         <ul>
             <li>Ketik diterminal <code>php artisan tinker</code> setelah itu masukan code dibawah</li>
             <h4>Factory/Dummy Dosen</h5>
-                <li>
-                    <code>
-                        Dosen::factory()->count(50)->create();
-                    </code>
-                </li>
+            <li>
+            <code>Dosen::factory()->count(50)->create();</code>
+            </li>
                 <h4>Factory/Dummy Mahasiswa</h5>
-                    <li>
-                        <code>
-                            Mahasiswa::factory()->count(400)->create();
-                        </code>
-                    </li>
+            <li>
+                <code>Mahasiswa::factory()->count(400)->create();</code>
+            </li>
         </ul>
     </li>
     <li>Setelah berhasil, masukan data-data nya dengan cara <code> php artisan db:seed </code> pada terminal lalu enter</li>
