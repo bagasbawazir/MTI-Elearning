@@ -14,22 +14,14 @@ class MatkulSeeder extends Seeder
      */
     public function run()
     {
-        $matkuls = collect(['arsiteksur komputer',
-                        'pemrograman berorientasi objek',
-                        'matematika diskrit',
-                        'bahasa inggris',
-                        'struktur data',
-                        'character building',
-                        'pemrograman web',
-                        'pemrograman android',
-                        'machine learning',
-                        'pemrograman dasar',
-                        'algoritma',
-                        'pemrograman java',
-                        'pemrograman python',
-                        'design grafis',
-                        'figma'
-                        ]);
+        $matkuls = collect([
+            'Advance Database Management Systems',
+            'Bela Negara',
+            'Internet of Things',
+            'Metodologi Penelitian',
+            'User Experience Design',
+        ]);
+
         $matkuls->each(function($matkul){
             $arr = explode(' ', $matkul);
             $singkatan = '';
