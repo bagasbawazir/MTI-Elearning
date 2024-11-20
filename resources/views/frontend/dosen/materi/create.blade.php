@@ -46,8 +46,8 @@
                     </select>
                 </div>
                 <div class="form-group" id="formLink">
-                    <label for="link">Link <code>https://www.youtube.com/watch?v=jfKfPfyJRdk</code></label>
-                    <input type="text" name="file_or_link" class="form-control" id="link" placeholder="jfKfPfyJRdk">
+                    <label for="link">Link <code>https://www.youtube.com/watch?v=feaJW_iCBPo</code></label>
+                    <input type="text" name="file_or_link" class="form-control" id="link" placeholder="feaJW_iCBPo">
                 </div>
                 <div class="form-group" id="formFile">
                     <label for="file">File</label>

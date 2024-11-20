@@ -61,7 +61,7 @@
                     </select>
                 </div>
                 <div class="form-group" id="formLink">
-                    <label for="link">Link <code>https://www.youtube.com/watch?v=jfKfPfyJRdk</code></label>
+                    <label for="link">Link <code>https://www.youtube.com/watch?v=feaJW_iCBPo</code></label>
                     <input type="text" name="file_or_link" class="form-control" id="link" value="{{ $materi->tipe == 'youtube' ? $materi->file_or_link : '' }}">
                 </div>
                 <div class="form-group" id="formFile">
