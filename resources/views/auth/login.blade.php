@@ -6,6 +6,12 @@
                     <div class="card-header">
                         <h4>Silahkan Login</h4>
                     </div>
+                    <div class="login100-pic js-tilt mx-auto mt-3 mb-0">
+                        <img 
+                            src="{{ asset('assets/images/brand/logopgmti.png') }}" 
+                            alt="Logo PG" 
+                            style="border-radius: 100px; width: 240px; height: auto;">
+                    </div>
                     <div class="card-body">
                         <x-alert />
                         <form method="POST" action="{{ route('login') }}" class="needs-validation mt-2" novalidate="">

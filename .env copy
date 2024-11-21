@@ -1,4 +1,4 @@
-APP_NAME="Build Elearning"
+APP_NAME="MTI-Elearning"
 APP_ENV=local
 APP_KEY=base64:suAtJW/6o7NJzlK83D16YUbjGEE446gho0HMN7wSvv4=
 APP_DEBUG=true
