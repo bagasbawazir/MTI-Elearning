@@ -8,6 +8,12 @@
                     </div>
                     <div class="login100-pic js-tilt mx-auto mt-3 mb-0">
                         <img 
+                            src="{{ asset('assets/images/brand/logomtinew.png') }}" 
+                            alt="Logo PG" 
+                            style="border-radius: 100px; width: 240px; height: auto;">
+                    </div>
+                    <div class="login100-pic js-tilt mx-auto mt-3 mb-0">
+                        <img 
                             src="{{ asset('assets/images/brand/logopgmti.png') }}" 
                             alt="Logo PG" 
                             style="border-radius: 100px; width: 240px; height: auto;">
