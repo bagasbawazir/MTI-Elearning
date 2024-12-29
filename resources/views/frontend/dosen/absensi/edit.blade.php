@@ -26,7 +26,7 @@
             <form action="{{ route('absensi.update', Crypt::encryptString($absensi->id)) }}" method="post">
                 @csrf
                 @method('patch')
-                {{-- <input type="hidden" value="{{ Crypt::encryptString($jadwal->id) }}" name="jadwal"> --}}
+                <input type="hidden" value="{{ Crypt::encryptString($jadwal->id) }}" name="jadwal">
                 <div class="form-group">
                     <label for="kelas">Kelas</label>
                     <input disabled value="{{ $absensi->jadwal->kelas->kd_kelas }}" class="form-control">

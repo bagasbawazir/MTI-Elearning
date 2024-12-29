@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom';
+import dayjs from 'dayjs';
+
+const formattedDate = dayjs('2025-01-15T17:00:00.000000Z').format('DD/MM/YYYY');
 
 function Table(props) {
     const [jadwals, setJadwals] = useState([])
@@ -59,6 +62,7 @@ function Table(props) {
                                     <th>Dosen Pengajar</th>
                                     <th>Matakuliah</th>
                                     <th>Jam</th>
+                                    <th>Tanggal</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -74,6 +78,7 @@ function Table(props) {
                                                 <td>{jadwal.dosen}</td>
                                                 <td>{jadwal.matkul}</td>
                                                 <td>{`${jadwal.jam_masuk} - ${jadwal.jam_keluar}`}</td>
+                                                <td>{jadwal.tanggal}</td>
                                                 <td>
                                                     <a href={`/jadwals/${jadwal.id}/edit`} className="btn btn-icon icon-left btn-primary btn-sm mr-1"><i className="fas fa-edit"></i> Edit</a>
                                                     <button className="btn btn-icon icon-left btn-danger btn-sm" value={jadwal.id} onClick={deleteJadwal}><i className="fas fa-trash"></i> Delete</button>
@@ -83,7 +88,7 @@ function Table(props) {
                                     })
                                     :
                                     <tr>
-                                        <td colSpan="7" className="text-center">Tidak ada data</td>
+                                        <td colSpan="8" className="text-center">Tidak ada data</td>
                                     </tr>
                                 }
                             </tbody>

@@ -30,6 +30,7 @@ class JadwalRequest extends FormRequest
             'hari' => 'required',
             'jam_masuk' => 'required',
             'jam_keluar' => 'required',
+            'tanggal' => 'required',
         ];
     }
 }

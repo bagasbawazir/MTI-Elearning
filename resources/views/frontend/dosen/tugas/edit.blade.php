@@ -11,7 +11,7 @@
             <form action="{{ route('tugas.edit', $tugas) }}" method="post" enctype="multipart/form-data">
                 @method('put')
                 @csrf
-                {{-- <input type="hidden" name="jadwal" value="{{ Crypt::encrypt($jadwal->id) }}" /> --}}
+                <input type="hidden" name="jadwal" value="{{ Crypt::encrypt($jadwal->id) }}" />
                 <x-input type="text" attr="judul" label="Judul" value="{{ $tugas->judul }}"/>
                 <x-input type="text" attr="pertemuan" label="Pertemuan" value="{{ $tugas->pertemuan }}"
                     readonly />

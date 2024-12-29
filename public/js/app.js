@@ -2233,6 +2233,10 @@ function Create(props) {
       jamKeluar = _useState20[0],
       setJamKeluar = _useState20[1]; //Notif ketika berhasil create jadwal
 
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(''),
+      _useState24 = _slicedToArray(_useState23, 2),
+      tanggal = _useState24[0],
+      setTanggal = _useState24[1];
 
   var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(['']),
       _useState22 = _slicedToArray(_useState21, 2),
@@ -2245,7 +2249,8 @@ function Create(props) {
     matkul_id: matkulId,
     hari: hari,
     jam_masuk: jamMasuk,
-    jam_keluar: jamKeluar
+    jam_keluar: jamKeluar,
+    tanggal: tanggal,
   };
 
   var store = /*#__PURE__*/function () {
@@ -2269,6 +2274,7 @@ function Create(props) {
               setHari('');
               setJamMasuk('');
               setJamKeluar('');
+              setTanggal('');
               setErrors(['']);
               _context.next = 18;
               break;
@@ -2552,7 +2558,39 @@ function Create(props) {
                   }) : '']
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), 
+            /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "row",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "col-12",
+                children: [/* Toaster */, /*#__ Card */, /*#__ Body */, /*#__ Form */, /*#__ Additions */, 
+                  /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                    className: "form-group",
+                    children: [
+                      /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                        htmlFor: "tanggal",
+                        children: "Tanggal"
+                      }),
+                      /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                        value: tanggal,
+                        onChange: function onChange(e) {
+                          return setTanggal(e.target.value);
+                        },
+                        type: "date",
+                        className: "form-control",
+                        name: "tanggal",
+                        id: "tanggal"
+                      }),
+                      errors.tanggal ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "text-danger text-small",
+                        children: errors.tanggal
+                      }) : ''
+                    ]
+                  })
+                ]
+              })
+            }), 
+            /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "form-group d-flex justify-content-between",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                 type: "submit",
@@ -2680,6 +2718,10 @@ function Edit(props) {
       jamKeluar = _useState20[0],
       setJamKeluar = _useState20[1]; //Notif ketika berhasil create jadwal
 
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(''),
+      _useState24 = _slicedToArray(_useState23, 2),
+      tanggal = _useState24[0],
+      setTanggal = _useState24[1];
 
   var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(['']),
       _useState22 = _slicedToArray(_useState21, 2),
@@ -2692,7 +2734,8 @@ function Edit(props) {
     matkul_id: matkulId,
     hari: hari,
     jam_masuk: jamMasuk,
-    jam_keluar: jamKeluar
+    jam_keluar: jamKeluar,
+    tanggal: tanggal,
   };
 
   var update = /*#__PURE__*/function () {
@@ -2853,6 +2896,7 @@ function Edit(props) {
               setHari(jadwal.hari);
               setJamMasuk(jadwal.jam_masuk);
               setJamKeluar(jadwal.jam_keluar);
+              setTanggal(jadwal.tanggal);
 
             case 15:
             case "end":
@@ -2866,6 +2910,15 @@ function Edit(props) {
       return _ref5.apply(this, arguments);
     };
   }();
+
+  var getTanggal = function getTanggal(e) {
+    const selectedDate = e.target.value;
+    
+    // Example: You can add validation or transformation logic here
+    const formattedDate = new Date(selectedDate).toLocaleDateString('id-ID'); // Format date in Indonesian format
+    
+    setTanggal(formattedDate); // Update state with formatted date
+  };
 
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function (e) {
     setDays(['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum\'at', 'Sabtu', 'Minggu']);
@@ -3034,7 +3087,62 @@ function Edit(props) {
                   }) : '']
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), 
+            // /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            //   className: "form-group",
+            //   children: [
+            //     /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+            //       htmlFor: "tanggal",
+            //       children: "Tanggal Return"
+            //     }),
+            //     /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            //       value: tanggalReturn,
+            //       onChange: function onChange(e) {
+            //         return setTanggal(e.target.value);
+            //       },
+            //       type: "date",
+            //       className: "form-control",
+            //       name: "tanggal",
+            //       id: "tanggal"
+            //     }),
+            //     errors.tanggal ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            //       className: "text-danger text-small",
+            //       children: errors.tanggal
+            //     }) : ''
+            //   ]
+            // }),
+            /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "row",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "col-12",
+                children: [/* Toaster */, /*#__ Card */, /*#__ Body */, /*#__ Form */, /*#__ Additions */, 
+                  /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                    className: "form-group",
+                    children: [
+                      /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                        htmlFor: "tanggal",
+                        children: "Tanggal"
+                      }),
+                      /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                        value: tanggal,
+                        onChange: function onChange(e) {
+                          return setTanggal(e.target.value);
+                        },
+                        type: "date",
+                        className: "form-control",
+                        name: "tanggal",
+                        id: "tanggal"
+                      }),
+                      errors.tanggal ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "text-danger text-small",
+                        children: errors.tanggal
+                      }) : ''
+                    ]
+                  })
+                ]
+              })
+            }), 
+             /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "form-group d-flex justify-content-between",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                 type: "submit",
@@ -3129,6 +3237,12 @@ function Table(props) {
       filter = _useState8[0],
       setFilter = _useState8[1];
 
+  // Tambah ini
+  // var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(''),
+  //   _useState10 = _slicedToArray(_useState9, 2),
+  //   tanggal = _useState10[0],
+  //   setFetchDate = _useState10[1];
+
   var getJadwals = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
       var response;
@@ -3168,6 +3282,11 @@ function Table(props) {
       return _ref.apply(this, arguments);
     };
   }();
+
+  // Fungsi untuk memformat tanggal
+  const formatTanggal = (tanggal) => {
+    return moment(tanggal).format('DD MMMM YYYY'); // Format: 26 Desember 2024
+  };
 
   var deleteJadwal = function deleteJadwal(e) {
     e.preventDefault();
@@ -3231,7 +3350,9 @@ function Table(props) {
                   children: "Matakuliah"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
                   children: "Jam"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                }),/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  children: "Tanggal"
+                }),/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
                   children: "Action"
                 })]
               })
@@ -3250,7 +3371,14 @@ function Table(props) {
                     children: jadwal.matkul
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
                     children: "".concat(jadwal.jam_masuk, " - ").concat(jadwal.jam_keluar)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                    children: new Date(jadwal.tanggal).toLocaleDateString('id-ID', {
+                      day: '2-digit',
+                      month: '2-digit',
+                      year: 'numeric',
+                    })
+                  }),                  
+                   /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("td", {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
                       href: "/jadwals/".concat(jadwal.id, "/edit"),
                       className: "btn btn-icon icon-left btn-primary btn-sm mr-1",
@@ -3295,6 +3423,8 @@ function Table(props) {
     })
   });
 }
+
+// Bagas
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Table);
 

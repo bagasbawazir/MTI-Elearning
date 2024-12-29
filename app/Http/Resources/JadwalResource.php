@@ -23,6 +23,7 @@ class JadwalResource extends JsonResource
             'sks' => $this->matkul->sks,
             'jam_masuk' => $this->jam_masuk,
             'jam_keluar' => $this->jam_keluar,
+            'tanggal' => $this->tanggal,
         ];
     }
 }

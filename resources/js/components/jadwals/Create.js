@@ -17,6 +17,7 @@ function Create(props) {
     const [hari, setHari] = useState('')
     const [jamMasuk, setJamMasuk] = useState('')
     const [jamKeluar, setJamKeluar] = useState('')
+    const [tanggal, setTanggal] = useState('')
 
     //Notif ketika berhasil create jadwal
     const [errors, setErrors] = useState([''])
@@ -27,26 +28,30 @@ function Create(props) {
         matkul_id: matkulId,
         hari,
         jam_masuk:jamMasuk,
-        jam_keluar:jamKeluar
+        jam_keluar:jamKeluar,
+        tanggal
     }
 
     const store = async (e) => {
         e.preventDefault();
+        console.log('Data yang dikirim ke server:', request); // Debug log
         try {
-            let response = await axios.post(props.endpoint, request)
+            let response = await axios.post(props.endpoint, request);
             toast.success(response.data.message);
-
-            setKelasId('')
-            setDosenId('')
-            setMatkulId('')
-            setHari('')
-            setJamMasuk('')
-            setJamKeluar('')
-            setErrors([''])
+    
+            setKelasId('');
+            setDosenId('');
+            setMatkulId('');
+            setHari('');
+            setJamMasuk('');
+            setJamKeluar('');
+            setTanggal('');
+            setErrors(['']);
         } catch (e) {
+            console.log('Kesalahan dari server:', e.response.data); // Debug log
             setErrors(e.response.data.errors);
         }
-    }
+    };    
 
     const getKelas = async () => {
         try {
@@ -72,6 +77,38 @@ function Create(props) {
     const getMatkulId = (e) => {
         setMatkulId(e.target.value)
     }
+
+    const isTanggalValid = (selectedTanggal) => {
+        const today = new Date().toISOString().split('T')[0]; // Tanggal hari ini dalam format YYYY-MM-DD
+        const oneYearAhead = new Date();
+        oneYearAhead.setFullYear(oneYearAhead.getFullYear() + 1); // Batas 1 tahun ke depan
+    
+        if (selectedTanggal < today) {
+            toast.error('Tanggal tidak boleh di masa lalu');
+            return false;
+        }
+    
+        if (selectedTanggal > oneYearAhead.toISOString().split('T')[0]) {
+            toast.error('Tanggal tidak boleh lebih dari 1 tahun ke depan');
+            return false;
+        }
+    
+        return true;
+    };
+    
+    const handleTanggalChange = (selectedTanggal) => {
+        if (!selectedTanggal) {
+            toast.error('Tanggal tidak valid');
+            console.log('Tanggal kosong:', selectedTanggal); // Debug log
+            return;
+        }
+    
+        if (isTanggalValid(selectedTanggal)) {
+            setTanggal(selectedTanggal);
+            console.log('Tanggal berhasil diatur:', selectedTanggal); // Debug log
+        }
+    };
+    
 
     useEffect((e) => {
         setDays(['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum\'at', 'Sabtu', 'Minggu'])
@@ -192,6 +229,21 @@ function Create(props) {
                                         }
                                     </div>
                                 </div>
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="tanggal">Tanggal</label>
+                                <input
+                                    value={tanggal}
+                                    onChange={(e) => handleTanggalChange(e.target.value)}
+                                    type="date"
+                                    className={`form-control ${errors.tanggal ? 'is-invalid' : ''}`}
+                                    name="tanggal"
+                                    id="tanggal"
+                                />
+                                {errors.tanggal && (
+                                    <div className="text-danger text-small">{errors.tanggal[0]}</div>
+                                )}
                             </div>
 
                             <div className="form-group d-flex justify-content-between">

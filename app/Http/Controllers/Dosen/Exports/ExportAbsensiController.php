@@ -6,6 +6,7 @@ use App\Exports\Report\Absensi;
 use App\Models\Kelas;
 use App\Models\Nilai;
 use App\Models\Matkul;
+use App\Models\Absen;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

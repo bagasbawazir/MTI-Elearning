@@ -17,6 +17,7 @@ function Edit(props) {
     const [hari, setHari] = useState('')
     const [jamMasuk, setJamMasuk] = useState('')
     const [jamKeluar, setJamKeluar] = useState('')
+    const [tanggal, setTanggal] = useState('')
 
     //Notif ketika berhasil create jadwal
     const [errors, setErrors] = useState([''])
@@ -27,7 +28,8 @@ function Edit(props) {
         matkul_id: matkulId,
         hari,
         jam_masuk:jamMasuk,
-        jam_keluar:jamKeluar
+        jam_keluar:jamKeluar,
+        tanggal
     }
 
     const update = async (e) => {
@@ -79,6 +81,7 @@ function Edit(props) {
         setHari(jadwal.hari)
         setJamMasuk(jadwal.jam_masuk)
         setJamKeluar(jadwal.jam_keluar)
+        setTanggal(jadwal.tanggal)
     }
 
     useEffect((e) => {
@@ -114,6 +117,20 @@ function Edit(props) {
                                         <div className="text-danger text-small">{errors.kelas_id}</div>
                                         : ''
                                 }
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="tanggal">Tanggal</label>
+                                <input
+                                    value={tanggal}
+                                    onChange={(e) => setTanggal(e.target.value)}
+                                    type="date"
+                                    className="form-control"
+                                    name="tanggal"
+                                    id="tanggal"
+                                />
+                                {errors.tanggal && (
+                                    <div className="text-danger text-small">{errors.tanggal}</div>
+                                )}
                             </div>
 
                             {

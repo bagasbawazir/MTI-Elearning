@@ -87,14 +87,14 @@
                                             <input type="hidden" value="{{ $mhs->id }}" name="mahasiswa[]">
                                             <div class="pretty p-default p-round p-thick">
                                                 <input type="radio" name="status[]{{ $i }}" value="1" {{
-                                                    $mhs->mahasiswaAbsenHariIni ? 'checked' : '' }}>
+                                                    $mhs->mahasiswaAbsenHariIni || is_null($mhs->mahasiswaAbsenHariIni) ? 'checked' : '' }}>
                                                 <div class="state p-primary-o">
                                                     <label>Hadir</label>
                                                 </div>
                                             </div>
                                             <div class="pretty p-default p-round p-thick">
                                                 <input type="radio" name="status[]{{ $i }}" value="0" {{
-                                                    !$mhs->mahasiswaAbsenHariIni ? 'checked' : '' }}>
+                                                    !$mhs->mahasiswaAbsenHariIni && !is_null($mhs->mahasiswaAbsenHariIni) ? 'checked' : '' }}>
                                                 <div class="state p-danger-o">
                                                     <label>Tidak Hadir</label>
                                                 </div>

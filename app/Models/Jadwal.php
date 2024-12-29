@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Jadwal extends Model
 {
     use HasFactory;
-    protected $fillable = ['kelas_id','dosen_id','matkul_id','hari','jam_masuk','jam_keluar'];
+    protected $fillable = ['kelas_id', 'dosen_id', 'matkul_id', 'hari', 'jam_masuk', 'jam_keluar', 'tanggal']; // Tambahkan 'tanggal'
     public $timestamps = false;
+
+    protected $casts = [
+        'tanggal' => 'date', // Menjadikan atribut tanggal sebagai tipe date
+    ];
 
     public function kelas()
     {

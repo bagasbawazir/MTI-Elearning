@@ -40,6 +40,7 @@
                           <thead>
                               <tr>
                                 <td class="bg-secondary text-center font-weight-bold">MAHASISWA</td>
+                                <td class="bg-secondary text-center font-weight-bold">TANGGAL</td> <!-- Kolom Tanggal Hari Ini -->
                                 @for ($i = 1; $i <= 16; $i++)
                                   <td class="text-center bg-secondary font-weight-bold">P {{ $i }}</td>
                                 @endfor
@@ -57,6 +58,10 @@
                                               </div>
                                           </li>  
                                         </td>
+                                      <!-- Kolom Tanggal Hari Ini -->
+                                      <td style="text-align: center; background: {{ $key % 2 == 0 ? '#6FB2D2' : '' }}; font-size: 14px; font-weight: bold; border: 1px solid; border-color: #3A5BA0">
+                                          {{ now()->format('d-m-Y') }} <!-- Format tanggal: Hari-Bulan-Tahun -->
+                                      </td>
                                       @if ($mhs->kelas_id == $kls->id)
                                         @for ($i = 1; $i <= 16; $i++)
                                           <td style="background:{{ $key % 2 == 0 ? '#6FB2D2' : '' }}; text-align: center; font-size: 18px; font-weight: bold; border: 1px solid; border-color: #3A5BA0">
