@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace Database\Seeders;
 
@@ -34,13 +34,10 @@ class MatkulSeeder extends Seeder
             Matkul::create([
                 'kd_matkul' => $singkatan,
                 'nm_matkul' => $matkul,
-                'sks' => rand(1,10)
+                'sks' => rand(1, 10),
+                'semester' => 'Semester ' . rand(1, 8), // Menambahkan kolom semester
+                'tahun_ajaran' => rand(2020, 2024) . '/' . rand(2025, 2028) // Menambahkan kolom tahun_ajaran
             ]);
         });
-
-        
-
-
-
     }
 }

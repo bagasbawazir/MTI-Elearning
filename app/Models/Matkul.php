@@ -10,7 +10,7 @@ class Matkul extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['kd_matkul','nm_matkul','sks'];
+    protected $fillable = ['kd_matkul', 'nm_matkul', 'sks', 'semester', 'tahun_ajaran'];
     // protected $with = ['materis'];
     
     public function jadwals()

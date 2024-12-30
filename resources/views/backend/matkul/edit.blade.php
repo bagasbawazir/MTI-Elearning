@@ -9,6 +9,8 @@
                 @method('put')
                 <x-input type="text" attr="nm_matkul" label="Matakuliah" value="{{ $matkul->nm_matkul }}" />
                 <x-input type="text" attr="sks" label="SKS" value="{{ $matkul->sks }}" />
+                <x-input type="text" attr="semester" label="Semester" value="{{ $matkul->semester }}" />
+                <x-input type="text" attr="tahun_ajaran" label="Tahun Ajaran" value="{{ $matkul->tahun_ajaran }}" />
                 <x-button>Simpan</x-button>
             </form>
         </div>
