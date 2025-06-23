@@ -15,13 +15,17 @@
                         <th>#</th>
                         <th>Kode Matakuliah</th>
                         <th>Nama Matakuliah</th>
+                        <th>Semester</th>
+                        <th>Tahun Ajaran</th>
                         <th>Action</th>
                     </tr>
                     @forelse ($matkuls as $index => $matkul)
                     <tr>
                         <td>{{ $matkuls->firstItem() + $index }}</td>
-                        <td>{{ $matkul->kd_matkul }}</td>
+                        <td>{{ $matkul->kd_matkul }}1411011</td>
                         <td>{{ $matkul->nm_matkul }}</td>
+                        <td>{{ $matkul->semester }}</td>
+                        <td>{{ $matkul->tahun_ajaran }}</td>
                         <td>
                             <form action="{{ route('matkuls.destroy',$matkul) }}" method="post"
                                 style="float:left;margin-right:5px;">

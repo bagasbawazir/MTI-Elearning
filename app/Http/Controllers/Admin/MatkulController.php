@@ -19,14 +19,14 @@ class MatkulController extends Controller
             return $this->search(Matkul::class, 'backend.matkul.index', 'matkuls', 'nm_matkul');
         }
 
-        return view('backend.matkul.index',[
+        return view('backend.matkul.index', [
             'matkuls' => Matkul::latest()->paginate(10)
         ]);
     }
 
     public function create()
     {
-        return view('backend.matkul.create',[
+        return view('backend.matkul.create', [
             'title' => 'Form Matkul'
         ]);
     }
@@ -35,13 +35,14 @@ class MatkulController extends Controller
     {
         $singkatan = '';
 
-        foreach(explode(' ', $request->nm_matkul)as $kata)
-        {
+        foreach (explode(' ', $request->nm_matkul) as $kata) {
             $singkatan .= substr($kata, 0, 1);
         }
 
         $attr = $request->all();
         $attr['kd_matkul'] = strtoupper($singkatan);
+        $attr['semester'] = $request->semester; // Menyimpan semester
+        $attr['tahun_ajaran'] = $request->tahun_ajaran; // Menyimpan tahun_ajaran
 
         $matkul = Matkul::create($attr);
 
@@ -50,21 +51,22 @@ class MatkulController extends Controller
 
     public function edit(Matkul $matkul)
     {
-        return view('backend.matkul.edit',compact('matkul'));
+        return view('backend.matkul.edit', compact('matkul'));
     }
 
     public function update(MatkulRequest $request, Matkul $matkul)
     {
         $singkatan = '';
 
-        foreach(explode(' ', $request->nm_matkul) as $kata)
-        {
+        foreach (explode(' ', $request->nm_matkul) as $kata) {
             $singkatan .= substr($kata, 0, 1);
         }
 
         $attr = $request->all();
         $attr['kd_matkul'] = strtoupper($singkatan);
-        
+        $attr['semester'] = $request->semester; // Mengupdate semester
+        $attr['tahun_ajaran'] = $request->tahun_ajaran; // Mengupdate tahun_ajaran
+
         $matkul->update($attr);
 
         return redirect(route('matkuls.index'))->with('success', "Berhasil update matkul : $matkul->nm_matkul");

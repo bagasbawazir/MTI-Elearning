@@ -10,6 +10,8 @@
                 @csrf
                 <x-input type="text" attr="nm_matkul" label="Matakuliah" autofocus="autofocus" />
                 <x-input type="text" attr="sks" label="SKS" />
+                <x-input type="text" attr="semester" label="Semester" />
+                <x-input type="text" attr="tahun_ajaran" label="Tahun Ajaran" />
                 <x-button>Simpan</x-button>
             </form>
         </div>
